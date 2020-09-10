@@ -17,7 +17,9 @@ const defaults = {
 };
 
 export default class YMap {
-  constructor({ root, settings, options, logger, debug }) {
+  constructor({
+    root, settings, options, logger, debug,
+  }) {
     this.debug = debug;
     this.logger = logger;
 
@@ -44,7 +46,7 @@ export default class YMap {
     let geocode = null;
     this.log('Trying to find geocode', location);
 
-    let geocoder = ymaps.geocode(location, { json: true, results: 10 });
+    const geocoder = ymaps.geocode(location, { json: true, results: 10 });
 
     const res = await geocoder;
     [geocode] = res.GeoObjectCollection.featureMember;
@@ -65,6 +67,35 @@ export default class YMap {
     this.log('Adding new geoObject', obj);
   }
 
+  /* createYmapPoint({ name, coord, contacts }) {
+    const geoPoint = YMap.createGeoPoint(coord);
+
+    return {
+      ...geoPoint,
+      meta
+    };
+  } */
+
+  generateDistrictsFromObject(obj) {
+    const districts = YMap.getDistricts(obj);
+    for (let i = 0; i < districts.length; i += 1) {
+      const polygon = YMap.createGeoPolygon(districts[i].polygons, districts[i].name);
+      this.addGeoObject(polygon);
+    }
+  }
+
+  // TODO: Вынести все статичные функции в класс MapUtils
+  static getDistricts(data) {
+    console.log('Scanning districts db', data);
+    const districts = [];
+    for (let i = 0; i < data.length; i += 1) {
+      const c = data[i].territory.map((value) => [parseFloat(value.lat), parseFloat(value.lng)]);
+      districts.push({ name: data[i].district, polygons: c });
+    }
+    console.log('Parsed districts', districts);
+    return districts;
+  }
+
   static createGeoPoint(coord) {
     console.log('Generating new geoPoint', coord);
     return new ymaps.GeoObject({
@@ -73,5 +104,21 @@ export default class YMap {
         coordinates: coord,
       },
     });
+  }
+
+  static createGeoPolygon(coords, name) {
+    console.log('Generating new geoPolygon', coords, name);
+
+    return new ymaps.Polygon([[...coords]],
+      {
+        hintContent: name,
+      }, {
+        fillColor: '#166A99',
+        strokeColor: '#ffffff',
+        fillOpacity: 0.5,
+        strokeOpacity: 0.5,
+        strokeWidth: 2,
+        strokeStyle: 'solid',
+      });
   }
 }

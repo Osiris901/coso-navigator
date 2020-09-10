@@ -1,5 +1,6 @@
-import YMap from '../lib/ymap';
 import regeneratorRuntime from 'regenerator-runtime';
+import YMap from '../lib/ymap';
+import districts from '../districts';
 
 const exampleData = {
   providers: [
@@ -18,4 +19,7 @@ async function init() {
   const testGeocode = await map.geocodeFromLocation(exampleData.providers[0].location);
   const point = YMap.createGeoPoint(testGeocode.GeoObject.Point.pos.split(' ').reverse());
   map.addGeoObject(point);
+
+  const districtsData = districts();
+  map.generateDistrictsFromObject(districtsData);
 }
