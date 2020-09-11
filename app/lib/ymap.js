@@ -1,4 +1,4 @@
-import regeneratorRuntime from 'regenerator-runtime';
+import YMapUtils from './ymapUtils';
 
 const defaults = {
   settings: {
@@ -40,85 +40,59 @@ export default class YMap {
     this.log('Map initialized', this.mapSettings, this.mapOptions);
   }
 
-  // TODO: Проверить правильность использования async
-  // TODO: https://github.com/babel/babel/issues/9849#issuecomment-487040428
-  async geocodeFromLocation(location) {
-    let geocode = null;
-    this.log('Trying to find geocode', location);
-
-    const geocoder = ymaps.geocode(location, { json: true, results: 10 });
-
-    const res = await geocoder;
-    [geocode] = res.GeoObjectCollection.featureMember;
-
-    this.log('Found geocode', geocode, res);
-
-    return geocode;
-  }
-
   log(...args) {
-    if (this.debug) {
-      this.logger(...args);
-    }
+    if (this.debug && typeof this.logger === 'function') this.logger(...args);
   }
 
   addGeoObject(obj) {
-    this.ymap.geoObjects.add(obj);
-    this.log('Adding new geoObject', obj);
+    if (obj) this.ymap.geoObjects.add(obj);
+    this.log('Added geoObject', obj);
   }
 
-  /* createYmapPoint({ name, coord, contacts }) {
-    const geoPoint = YMap.createGeoPoint(coord);
+  generateDistrictMap(data) {
+    const districts = YMapUtils.getDistrictsFromObj(data, false, {
+      debug: this.debug, logger: this.logger,
+    });
 
-    return {
-      ...geoPoint,
-      meta
-    };
-  } */
-
-  generateDistrictsFromObject(obj) {
-    const districts = YMap.getDistricts(obj);
     for (let i = 0; i < districts.length; i += 1) {
-      const polygon = YMap.createGeoPolygon(districts[i].polygons, districts[i].name);
+      const polygon = YMapUtils.createPolygon({
+        geocodes: districts[i].geocodes,
+        name: districts[i].name,
+        debug: this.debug,
+        logger: this.logger,
+      });
+
       this.addGeoObject(polygon);
     }
+
+    if (this.debug) this.log('Generated district map');
   }
 
-  // TODO: Вынести все статичные функции в класс MapUtils
-  static getDistricts(data) {
-    console.log('Scanning districts db', data);
-    const districts = [];
+  // TODO: Рассмотреть использование objectManager для управления метками и кластерами
+  generatePlacemarks(data) {
+    // For testing
+    const placemarkColors = [
+      '#DB425A', '#4C4DA2', '#00DEAD', '#D73AD2',
+      '#F8CC4D', '#F88D00', '#AC646C', '#548FB7',
+    ];
+
+    const placemarks = [];
     for (let i = 0; i < data.length; i += 1) {
-      const c = data[i].territory.map((value) => [parseFloat(value.lat), parseFloat(value.lng)]);
-      districts.push({ name: data[i].district, polygons: c });
-    }
-    console.log('Parsed districts', districts);
-    return districts;
-  }
-
-  static createGeoPoint(coord) {
-    console.log('Generating new geoPoint', coord);
-    return new ymaps.GeoObject({
-      geometry: {
-        type: 'Point',
-        coordinates: coord,
-      },
-    });
-  }
-
-  static createGeoPolygon(coords, name) {
-    console.log('Generating new geoPolygon', coords, name);
-
-    return new ymaps.Polygon([[...coords]],
-      {
-        hintContent: name,
-      }, {
-        fillColor: '#166A99',
-        strokeColor: '#ffffff',
-        fillOpacity: 0.5,
-        strokeOpacity: 0.5,
-        strokeWidth: 2,
-        strokeStyle: 'solid',
+      const pm = YMapUtils.createPlacemark({
+        geocode: data[i].geocode,
+        placemarkData: {
+          header: data[i].name,
+          content: data[i].contacts,
+          footer: data[i].location,
+          color: placemarkColors[Math.floor(Math.random() * placemarkColors.length)],
+        },
+        debug: this.debug,
+        logger: this.logger,
       });
+      placemarks.push(pm);
+    }
+    const clusterer = YMapUtils.createClusterer(placemarks);
+    // CHECK: Нужно ли сохранять clusterer
+    this.addGeoObject(clusterer);
   }
 }

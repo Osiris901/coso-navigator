@@ -1,13 +1,8 @@
 export default function getDistricts() {
   return [
     {
-      address: '190005, Санкт-Петербург, Измайловский пр., 10',
-      email: 'tuadm@gov.spb.ru',
-      phone: '(812) 316-25-22',
       longitude: '30.3084930',
       latitude: '59.9132750',
-      image: '/static/writable/cache/1e/ec/1eec0107dd66514d0796e774ac0b4359.jpg',
-      name: 'Администрация Адмиралтейского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.908534037798255',
@@ -215,16 +210,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Адмиралтейский район',
-      url: '/gov/terr/reg_admiral/',
     },
     {
-      address: '199178, Санкт-Петербург, Большой пр. В.О., 55',
-      email: 'tuvo@gov.spb.ru',
-      phone: '(812) 576-93-72, (812) 323-63-07',
       longitude: '30.2714010',
       latitude: '59.9365890',
-      image: '/static/writable/cache/44/7d/447d5a78fb0c89875278f11a29e68780.jpg',
-      name: 'Администрация Василеостровского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.94112097214882',
@@ -800,16 +789,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Василеостровский район',
-      url: '/gov/terr/reg_vasileostr/',
     },
     {
-      address: '194100, Санкт-Петербург, Большой Сампсониевский пр., 86',
-      email: 'tuvyb@gov.spb.ru',
-      phone: '(812) 295-31-46',
       longitude: '30.3336550',
       latitude: '59.9860340',
-      image: '/static/writable/cache/6b/35/6b35efabd0cad79bcbfd50f1dcfcea9f.jpg',
-      name: 'Администрация Выборгского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.95185196353698',
@@ -1877,16 +1860,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Выборгский район',
-      url: '/gov/terr/reg_viborg/',
     },
     {
-      address: '195009, Санкт-Петербург, Арсенальная наб., д. 13/1',
-      email: 'tukalin@gov.spb.ru',
-      phone: '(812)417-47-67',
       longitude: '30.3575050',
       latitude: '59.9533170',
-      image: '/static/writable/cache/c1/8c/c18cccbf216725c5eb28856b726dfc8b.jpg',
-      name: 'Администрация Калининского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.95554302044118',
@@ -2246,16 +2223,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Калининский район',
-      url: '/gov/terr/reg_kalinin/',
     },
     {
-      address: '198095, Санкт-Петербург, пр. Стачек, 18',
-      email: 'tukir@gov.spb.ru',
-      phone: '(812) 252-30-17 (канцелярия); 252-00-21 (горячая линия - дежурная служба)',
       longitude: '30.2789380',
       latitude: '59.8941070',
-      image: '/static/writable/cache/b8/45/b845dbbf7ff56222cb23057dc197249d.jpg',
-      name: 'Администрация Кировского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.83496803873102',
@@ -3883,16 +3854,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Кировский район',
-      url: '/gov/terr/reg_kirovsk/',
     },
     {
-      address: '196653, Санкт-Петербург, г. Колпино, бульвар Победы, д.1',
-      email: 'tukolp@gov.spb.ru',
-      phone: '(812) 576-96-13',
       longitude: '30.5975750',
       latitude: '59.7489490',
-      image: '/static/writable/cache/5e/b9/5eb95e9133ed6e9c7ded55910a7ac9a0.jpg',
-      name: 'Администрация Колпинского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.72988596455438',
@@ -5964,16 +5929,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Колпинский район',
-      url: '/gov/terr/reg_kolpino/',
     },
     {
-      address: '195027, Санкт-Петербург, Среднеохтинский пр., 50',
-      email: 'tukrgv@gov.spb.ru',
-      phone: '(812) 227-43-64',
       longitude: '30.4148270',
       latitude: '59.9582600',
-      image: '/static/writable/cache/fd/84/fd849a9fce07a679e48a37226f269cfc.jpg',
-      name: 'Администрация Красногвардейского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.936765',
@@ -9289,16 +9248,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Красногвардейский район',
-      url: '/gov/terr/krasnogvard/',
     },
     {
-      address: '198329, Санкт-Петербург, ул. Партизана Германа, 3',
-      email: 'tukrsl@gov.spb.ru',
-      phone: '(812) 736-86-06',
       longitude: '30.1722990',
       latitude: '59.8440040',
-      image: '/static/writable/cache/61/01/610132c1b94925c752e16b1ff4973a22.jpg',
-      name: 'Администрация Красносельского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.83496803873102',
@@ -12802,16 +12755,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Красносельский район',
-      url: '/gov/terr/reg_krasnoselsk/',
     },
     {
-      address: '197760, Санкт-Петербург, г. Кронштадт, пр. Ленина, 36',
-      email: 'tukrns@gov.spb.ru',
-      phone: '(812) 576-90-00',
       longitude: '29.7620120',
       latitude: '59.9913670',
-      image: '/static/writable/cache/43/33/4333b792b000cfe1a35caa133f9829bf.jpg',
-      name: 'Администрация Кронштадтcкого района Санкт-Петербурга',
       territory: [
         [
           {
@@ -22545,16 +22492,10 @@ export default function getDistricts() {
         ],
       ],
       district: 'Кронштадтcкий район',
-      url: '/gov/terr/reg_kronsht/',
     },
     {
-      address: '197706, Санкт-Петербург, г. Сестрорецк, пл. Свободы, 1',
-      email: 'tukur@gov.spb.ru',
-      phone: '(812) 437-10-02',
       longitude: '29.9725590',
       latitude: '60.0938150',
-      image: '/static/writable/cache/2d/42/2d42e87c99d0a4b82ac38049ed771e74.jpg',
-      name: 'Администрация Курортного района Санкт-Петербурга',
       territory: [
         {
           lat: '60.049001',
@@ -39086,16 +39027,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Курортный район',
-      url: '/gov/terr/reg_kurort/',
     },
     {
-      address: '196006, Санкт-Петербург, Московский пр., д.129',
-      email: 'tumos@gov.spb.ru',
-      phone: '(812) 576-88-00, (812) 576-88-51',
       longitude: '30.3178440',
       latitude: '59.8855030',
-      image: '/static/writable/cache/fc/b6/fcb6cd4188f44b82f541233a190a95c3.jpg',
-      name: 'Администрация Московского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.83496803873102',
@@ -39975,16 +39910,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Московский район',
-      url: '/gov/terr/reg_moscow/',
     },
     {
-      address: '192131, Санкт-Петербург, пр. Обуховской Обороны, 163',
-      email: 'rnevsky@tunev.gov.spb.ru',
-      phone: '(812) 417-39-22',
       longitude: '30.4477770',
       latitude: '59.8782020',
-      image: '/static/writable/cache/55/c8/55c8336eb9b920bc8ca1917496fa2ecf.jpg',
-      name: 'Администрация Невского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.85849897399352',
@@ -40544,16 +40473,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Невский район',
-      url: '/gov/terr/nevsky/',
     },
     {
-      address: '197101, Санкт-Петербург, Большая Монетная ул., 19',
-      email: 'press@tupetr.gov.spb.ru',
-      phone: '(812) 576-51-84',
       longitude: '30.3197040',
       latitude: '59.9616520',
-      image: '/static/writable/cache/d3/6b/d36bb953d2df4c4e760cd51ce76fb615.jpg',
-      name: 'Администрация Петроградского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.97846200925717',
@@ -41017,16 +40940,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Петроградский район',
-      url: '/gov/terr/reg_petrograd/',
     },
     {
-      address: '198510, Санкт-Петербург, г. Петергоф, Калининская ул., д. 7',
-      email: 'tuptrdv@gov.spb.ru',
-      phone: '(812) 450-74-20',
       longitude: '29.9115090',
       latitude: '59.8818370',
-      image: '/static/writable/cache/3e/20/3e20bcdc7d36f940496f92bab160fc40.jpg',
-      name: 'Администрация Петродворцового района Санкт-Петербурга',
       territory: [
         [
           {
@@ -52058,16 +51975,10 @@ export default function getDistricts() {
         ],
       ],
       district: 'Петродворцовый район',
-      url: '/gov/terr/reg_petrodv/',
     },
     {
-      address: '197374, Санкт-Петербург, ул. Савушкина, д. 83',
-      email: 'tuprim@gov.spb.ru',
-      phone: '(812) 576-82-28',
       longitude: '30.2526360',
       latitude: '59.9857550',
-      image: '/static/writable/cache/41/69/4169638b355e487bd5e901b85ef79e41.jpg',
-      name: 'Администрация Приморского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.97846200925717',
@@ -57515,16 +57426,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Приморский район',
-      url: '/gov/terr/reg_primorsk/',
     },
     {
-      address: '196601 Санкт-Петербург, г. Пушкин, Октябрьский бульвар, 24',
-      email: 'tupush@gov.spb.ru',
-      phone: '(812) 576-92-00 - справочная;  417-44-52 - сектор дежурной службы (круглосуточно).',
       longitude: '30.4171530',
       latitude: '59.7225320',
-      image: '/static/writable/cache/d1/ef/d1ef3fff4ff2b378892e7696827a379f.jpg',
-      name: 'Администрация Пушкинского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.72988596455438',
@@ -60628,16 +60533,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Пушкинский район',
-      url: '/gov/terr/reg_pushkin/',
     },
     {
-      address: '192241, Санкт-Петербург, Пражская ул., 46',
-      email: 'frunsreg@tufruns.gov.spb.ru',
-      phone: '(812) 576-85-00 - Справочная служба; 709-61-70 - Дежурная служба (круглосуточно)',
       longitude: '30.4023760',
       latitude: '59.8650720',
-      image: '/static/writable/cache/07/2c/072c589515c745216aa417467d5f030d.jpg',
-      name: 'Администрация Фрунзенского района Санкт-Петербурга',
       territory: [
         {
           lat: '59.91297898879003',
@@ -60909,16 +60808,10 @@ export default function getDistricts() {
         },
       ],
       district: 'Фрунзенский район',
-      url: '/gov/terr/r_frunz/',
     },
     {
-      address: '191167, Санкт-Петербург, Невский пр., 176',
-      email: 'tucentr@gov.spb.ru',
-      phone: '(812) 576-28-00, 417-45-95',
       longitude: '30.3810230',
       latitude: '59.9255830',
-      image: '/static/writable/cache/a2/7f/a27f145fa54f492ee91fc1a68de08e98.jpg',
-      name: 'Администрация Центрального района Санкт-Петербурга',
       territory: [
         {
           lat: '59.92083602852318',
@@ -61046,7 +60939,6 @@ export default function getDistricts() {
         },
       ],
       district: 'Центральный район',
-      url: '/gov/terr/reg_center/',
     },
   ];
 }
