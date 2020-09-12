@@ -13,38 +13,93 @@ body {
         text-decoration: none;
         font-weight: 600;
         color: #1c1c1c;
-        font-size: 1.5em;
+        font-size: 1.1em;
         margin: 0 15px;
     }
     #main-nav {
         margin: 0 0 0 20px;
-        .menu-item {
-            display: inline-block;
-            margin-left: 15px;
-            text-decoration: none;
-            color: #7f8c8d;
-            font-size: 1.05em;
-            &::after {
-                content: '';
-                border-top: 2px solid #7f8c8d;
-                display: block;
-                width: 0;
-                transition: all .3s ease-in-out;
-            }
-            &:hover::after {
-                width: 100%;
-            }
-        }
-        .active {
-            color: #e74c3c;
-            &::after {
-                border-color: #e74c3c;
-            }
-        }
     }
 }
+
+.menu-item {
+    display: inline-block;
+    margin-left: 15px;
+    text-decoration: none;
+    color: #7f8c8d;
+    font-size: 1.05em;
+    &::after {
+        content: '';
+        border-top: 2px solid #7f8c8d;
+        display: block;
+        width: 0;
+        transition: all .3s ease-in-out;
+    }
+    &:hover::after {
+        width: 100%;
+    }
+}
+.active {
+    color: #e74c3c;
+    &::after {
+        border-color: #e74c3c;
+    }
+}
+
 #app {
     background-color: #ecf0f1;
     width: 100%;
     height: calc(100vh - 60px);
+    display: flex;
+    flex-wrap: wrap;
+    #sidebar {
+        min-width: 380px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        color: #7f8c8d;
+        h2 {
+            height: 25px;
+            color: #1c1c1c;
+            margin-left: 20px;
+            font-size: 1.2em;
+        }
+        #filters {
+            width: 100%;
+            height: 53px;
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            border-bottom: 1px solid #ecf0f1;
+            .filter {
+                margin: 15px 0;
+            }
+        }
+        .results {
+            height: calc(100% - 83px);
+            overflow-y: scroll;
+            flex-grow: 1;
+            background-color: white;
+            padding: 0 10px;
+            .item {
+                width: 100%;
+                border-left: 2px solid #e74c3c;
+                margin: 10px 0;
+                padding: 5px 0;
+                transition: background .3s ease-in-out;
+                h3 {
+                    color: #2c2c2c;
+                }
+                h3, p{
+                    margin-left: 15px;
+                }
+                &:hover {
+                    background-color: #ecf0f1;
+                }
+            }
+        }
+    }
+    #map-div {
+        flex: 2 1 640px;
+        height: 100%;     
+    }
 }

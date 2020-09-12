@@ -1,3 +1,4 @@
+// OUTDATED!
 export default function getDistricts() {
   return [
     {

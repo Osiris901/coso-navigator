@@ -9,13 +9,29 @@
 </head>
 <body>
     <div class="header">
-        <a href="" class="brand">COSO Navigator</a>
+        <a href="#" class="brand">COSO Navigator</a>
         <nav id ="main-nav">
             <a href="#" class="menu-item active">Карта</a>
             <a href="#" class="menu-item">Обработчик</a>
         </nav>
     </div>
-    <div id="app"></div>    
+    <div id="app">
+        <div id="sidebar">
+            <h2 id="sidebar-title">Список услуг</h2>
+            <div id="filters">
+                <a href="#" class="filter menu-item active">Услуги</button>
+                <a href="#" class="filter menu-item">Категории</button>
+                <a href="#" class="filter menu-item">Округа</button>
+            </div>
+            <div class="results" id="category">
+                <div class="item">
+                    <h3>Название</h3>
+                    <p>Найдено N точек</p>
+                </div>
+            </div>
+        </div>
+        <div id="map-div"></div>
+    </div>    
     <script src="/js/index.js"></script>
 </body>
 </html>

@@ -1,12 +1,34 @@
-import regeneratorRuntime from 'regenerator-runtime';
 import YMap from '../lib/ymap';
-import districts from '../localStorage/districtCollection';
-import providers from '../localStorage/providerCollection';
+import getPlacemarks from '../localStorage/placemarkCollection';
+import getPolygons from '../localStorage/polygonCollection';
 
-ymaps.ready(init);
+const defaults = {
+  settings: {
+    center: [59.94, 30.31],
+    zoom: 10,
+    controls: ['geolocationControl', 'typeSelector', 'fullscreenControl', 'zoomControl'],
+  },
+  options: {
+    geolocationControlFloat: 'right',
+    zoomControlFloat: 'none',
+    zoomControlPosition: {
+      bottom: '40px',
+      right: '30px',
+    },
+  },
+};
 
-async function init() {
-  const map = new YMap({ root: 'app', debug: true, logger: console.log });
-  map.generateDistrictMap(districts());
-  map.generatePlacemarks(providers());
-}
+// eslint-disable-next-line no-undef
+ymaps.ready({
+  successCallback: () => {
+    const map = new YMap({
+      root: 'map-div', settings: defaults.settings, options: defaults.options, debug: true, logger: console.log,
+    });
+    map.initManagers();
+    map.addPlacemarks(getPlacemarks());
+    map.addPolygons(getPolygons());
+  },
+  errorCallback: (context) => {
+    console.log(context);
+  },
+});
