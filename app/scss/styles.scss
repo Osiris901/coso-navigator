@@ -72,19 +72,26 @@ body {
             border-bottom: 1px solid #ecf0f1;
             .filter {
                 margin: 15px 0;
+                transition: color 0.3s ease-in-out;
             }
         }
         .results {
             height: calc(100% - 83px);
+            display: none;
+            &.current {
+                display: block;
+            }
             overflow-y: scroll;
             flex-grow: 1;
             background-color: white;
             padding: 0 10px;
+            animation: fadeEffect 1s;
             .item {
                 width: 100%;
                 border-left: 2px solid #e74c3c;
                 margin: 10px 0;
                 padding: 5px 0;
+                cursor: pointer;
                 transition: background .3s ease-in-out;
                 h3 {
                     color: #2c2c2c;
@@ -97,9 +104,21 @@ body {
                 }
             }
         }
+
+        #districts .item{
+            h3 {
+                font-size: 1em;
+                font-weight: 500;
+            }
+        }
     }
     #map-div {
         flex: 2 1 640px;
         height: 100%;     
     }
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0; }
+    to {opacity: 1;}
 }
