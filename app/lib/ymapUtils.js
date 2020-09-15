@@ -1,6 +1,4 @@
 /* eslint-disable no-undef */
-import regeneratorRuntime from 'regenerator-runtime';
-
 export default class YMapUtils {
   static createMap(...args) {
     return new ymaps.Map(...args);
@@ -10,15 +8,25 @@ export default class YMapUtils {
     return new ymaps.ObjectManager({ ...args });
   }
 
-  // CHECK: Проверить правильность использования async
-  // https://github.com/babel/babel/issues/9849#issuecomment-487040428
-  static async geocodeFromLocation(location, results = 1) {
-    let geocode = null;
+  static geocodeFromLocation(location) {
+    return ymaps.geocode(location, { json: true, results: 1 })
+      .then((res) => res.GeoObjectCollection.featureMember[0]);
+  }
 
-    const geocoder = ymaps.geocode(location, { json: true, results });
-    const res = await geocoder;
-    [geocode] = res.GeoObjectCollection.featureMember;
+  static createFilterItem({ name, description, color }) {
+    const item = document.createElement('div');
+    const title = document.createElement('h3');
+    const text = document.createElement('p');
 
-    return geocode;
+    item.classList.add('item');
+    item.style.borderLeftColor = color || '#166A99';
+
+    title.innerText = name;
+    text.innerText = description;
+
+    item.appendChild(title);
+    item.appendChild(text);
+
+    return item;
   }
 }

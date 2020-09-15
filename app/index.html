@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>COSO Navigator</title>
+    <title>Социальный навигатор Санкт-Петербурга</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="/scss/styles.scss">
@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="header">
-        <a href="#" class="brand">COSO Navigator</a>
+        <a href="#" class="brand">Социальный навигатор</a>
         <nav id ="main-nav">
             <a href="#" class="menu-item active">Карта</a>
             <a href="#" class="menu-item">Обработчик</a>
@@ -17,18 +17,28 @@
     </div>
     <div id="app">
         <div id="sidebar">
-            <h2 id="sidebar-title">Список услуг</h2>
-            <div id="filters">
-                <a href="#" class="filter menu-item active">Услуги</button>
-                <a href="#" class="filter menu-item">Категории</button>
-                <a href="#" class="filter menu-item">Округа</button>
+            <div id="sidebar-head">
+                <h2 id="sidebar-title">Фильтр услуг</h2>
+                <span id="clear-filters">Очистить</span>
             </div>
-            <div class="results current" id="serviceTypes"></div>
-            <div class="results" id="categories"></div>
-            <div class="results" id="districts"></div>
+            <div id="filters">
+                <span class="filter menu-item active">Категории</span>
+                <span class="devider disabled">></span>
+                <span class="filter menu-item disabled">Типы</span>                
+                <span class="devider disabled">></span>
+                <span class="filter menu-item disabled">Области</span>
+                <span class="devider disabled">></span>
+                <span class="filter menu-item disabled">Результаты</span>
+            </div>
+            <div class="results" id="filter-results"></div>
         </div>
         <div id="map-div"></div>
     </div>    
+    <!--<div id="tool">
+        <h3>Parse table from docx file</h3>
+        <input type="file" id="field"/>
+        <div class="parsed"></div>
+    </div>-->
     <script src="/js/index.js"></script>
 </body>
 </html>

@@ -52,16 +52,26 @@ body {
     display: flex;
     flex-wrap: wrap;
     #sidebar {
-        min-width: 380px;
+        width: 380px;
         height: 100%;
         display: flex;
         flex-direction: column;
         color: #7f8c8d;
-        h2 {
-            height: 25px;
-            color: #1c1c1c;
-            margin-left: 20px;
-            font-size: 1.2em;
+        #sidebar-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h2 {
+                height: 25px;
+                color: #444;
+                margin-left: 20px;
+                font-size: 1.2em;
+            }
+            span {
+                margin-right: 15px;
+                text-align: right;
+                cursor: pointer;
+            }
         }
         #filters {
             width: 100%;
@@ -71,16 +81,29 @@ body {
             background-color: white;
             border-bottom: 1px solid #ecf0f1;
             .filter {
+                cursor: pointer;
                 margin: 15px 0;
                 transition: color 0.3s ease-in-out;
+            }
+            .devider {
+                margin: 15px 0;
+                transition: color 0.3s ease-in-out;
+                font-size: 1em;
+                cursor: default;
+                &.passed {
+                    color: #e74c3c;
+                }
+            }
+            .disabled {
+                color: #a5b5b6;
+                cursor: default;
+                &:hover::after {
+                    width: 0;
+                }
             }
         }
         .results {
             height: calc(100% - 83px);
-            display: none;
-            &.current {
-                display: block;
-            }
             overflow-y: scroll;
             flex-grow: 1;
             background-color: white;
@@ -95,6 +118,7 @@ body {
                 transition: background .3s ease-in-out;
                 h3 {
                     color: #2c2c2c;
+                    overflow: visible;
                 }
                 h3, p{
                     margin-left: 15px;
@@ -105,7 +129,7 @@ body {
             }
         }
 
-        #districts .item{
+        .item .disctict {
             h3 {
                 font-size: 1em;
                 font-weight: 500;
@@ -116,6 +140,12 @@ body {
         flex: 2 1 640px;
         height: 100%;     
     }
+}
+
+#tool {
+    margin: 50px;
+    min-height: 300px;
+    width: 100%;
 }
 
 @keyframes fadeEffect {
